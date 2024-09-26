@@ -3,15 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Website</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eduardo Aguilar - PhD Student in Graph Neural Networks</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- You can add Bootstrap CDN for quick styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Simple Website</h1>
-        <p>This is a simple web page using HTML, CSS, and JavaScript.</p>
-        <button id="colorButton">Change Background Color</button>
-    </div>
-    <script src="script.js"></script>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Eduardo Aguilar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#research">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cv">CV</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="py-5 text-center text-light bg-dark">
+        <div class="container">
+            <h1 class="display-4">Eduardo Aguilar</h1>
+            <p class="lead">PhD Student in Graph Neural Networks & Chemical Space Exploration</p>
+            <p>Welcome to my personal website where I share my research, projects, and publications related to Graph Neural Networks (GNNs).</p>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-5">
+        <div class="container">
+            <h2 class="text-center">🧑🏽‍🔬 <strong>Research Focus</strong> 👨🏽‍💻</h2>
+            <p><em>My current research revolves around the use of <strong>Graph Neural Networks (GNNs)</strong> for various cutting-edge applications in Chemical and Materials Sciences.</em></p>
+            
+            <p>I am driven by the challenge of representing molecules and materials accurately in computational systems. This interest sparked my curiosity in applying 
+            <strong>cheminformatics</strong> to study <em>inorganic chemistry</em>. I aim to answer key research questions such as: <em><strong>How can we represent molecules and materials more accurately to enable machine learning models with higher predictive power?</strong></em></p>
+            
+            <p><strong>Some of the chemical systems I have explored using GNNs include:</strong></p>
+            <ul>
+                <li>🧪 <strong>Asymmetric Catalysis</strong></li>
+                <li>⚙️ <strong>Transition Metal Carbides and MXenes</strong></li>
+                <li>🧬 <strong>Polymers for Biomaterials Construction</strong></li>
+            </ul>
+    
+            <p>In addition to these, I am also involved in <em>side projects</em>, such as:</p>
+            <ul>
+                <li>🤖 Developing a <strong>self-driving laboratory for catalyst optimization</strong> in collaboration with <strong>Dr. Connor Taylors</strong>.</li>
+                <li>💻 Building <strong>Graphical User Interfaces (GUIs)</strong> and apps to allow <strong>non-expert scientists</strong> to utilize my software in their research.</li>
+            </ul>
+            <p> Currently, I am developing a Stramlit powered app for the prediction of chemical properties using GNNs.  This app will allow any chemist with no coding experience to train GNN
+                models on their own datasets. Also, the app will allow the users to predict the properties of in-silico libraries of molecules that they may want to study in the lab. 
+                Further, the app will provide interpretability tools to understand the predictions of the models. </p>
+            <p> </p>
+        </div>
+    </section>
+    
+
+    <!-- Publications Section -->
+    <!-- Publications Section -->
+    <section id="publications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Publications</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Publication 1: 
+                    <a href="https://chemrxiv.org/engage/chemrxiv/article-details/65d5dc469138d23161a14d6c" target="_blank">
+                        HCat-GNet: An Interpretable Graph Neural Network for Catalysis Optimization
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    Publication 2: 
+                    <a href="https://chemrxiv.org/engage/chemrxiv/article-details/664203ea91aefa6ce1dc1645" target="_blank">
+                        Describing Chiral Ligands in Palladium-catalyzed Decarboxylative Asymmetric Allylic Allylation: A Critical Comparison of Three Machine Learning Approaches
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    Publication 3: 
+                    <a href="https://doi.org/10.21203/rs.3.rs-4295272/v1" target="_blank">
+                        Explainable GNN-Derived Structure-Property Relationships in Interstitial-Alloy Materials
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Projects</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Project 1: GNN Error Detection Tool</h4>
+                    <p>Developed a tool for error detection in chemical databases using Graph Neural Networks. This tool allows chemists to upload datasets and train custom GNN models.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Project 2: GNN Explainability</h4>
+                    <p>Focused on increasing the interpretability of GNN models by applying GNNExplainer and ShapleyValueSampling techniques.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Project 3: Chemical Space Explorer</h4>
+                    <p>Developed an application to visualize chemical space using graph-based representations, helping to discover new molecules efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2>Contact</h2>
+            <p>If you'd like to collaborate or discuss my research, feel free to contact me:</p>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="py-5">
+        <div class="container text-center">
+            <h2>Curriculum Vitae</h2>
+            <p><a href="cv.pdf" class="btn btn-primary">Download My CV</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Eduardo Aguilar Bejarano - PhD Student | Built with Bootstrap</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and JS scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
+
