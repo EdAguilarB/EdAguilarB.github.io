@@ -119,5 +119,35 @@ nav.sticky {
   }
 }
 
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Optional: Slight move */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply fade-in animation to the hero section elements */
+#hero img, #hero h1, #hero p {
+  animation: fadeIn 2s ease-in-out; /* Animation duration and easing */
+  opacity: 0; /* Start with opacity 0 */
+  animation-fill-mode: forwards; /* Keep the final state after animation */
+}
+
+/* Delay the animations to occur one after the other */
+#hero h1 {
+  animation-delay: 0.5s;
+}
+
+#hero p {
+  animation-delay: 1s;
+}
+
+
+
 
 
