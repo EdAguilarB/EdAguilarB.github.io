@@ -16,15 +16,24 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Eduardo Aguilar</a>
+            <a class="navbar-brand" href="../index.html">Eduardo Aguilar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Research</a>
+    
+                    <!-- Research Dropdown Menu (Opens on hover) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="#home" id="researchButton">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/ligand_optimization.html">Data Driven Ligand Optimization</a></li>
+                            <li><a class="dropdown-item" href="pages/interstitial_alloys.html">Explainable Deep Learning Models for Interstitial-Alloy</a></li>
+                        </ul>
                     </li>
+    
                     <li class="nav-item">
                         <a class="nav-link" href="pages/about_me.html">About Me</a>
                     </li>
@@ -33,9 +42,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/collaborations.html">Collaborations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/gallery.html">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/cv.html">CV</a>
@@ -58,38 +64,23 @@
     <!-- Research Section -->
     <section id="research" class="py-5">
         <div class="container">
-            <h2 class="text-center"> <strong>Research Interests</strong> </h2>
-            <p><em>My  research revolves around <strong>Graph Neural Networks (GNNs)</strong> and their use for various cutting-edge applications in Chemical and Materials Sciences.</em>
+            <h2 class="text-center slide-in"> <strong>Research Interests</strong> </h2>
+            <p class="slide-in"><em>My  research revolves around <strong>Graph Neural Networks (GNNs)</strong> and their use for various cutting-edge applications in Chemical and Materials Sciences.</em>
             I am driven by the challenge of representing molecules and materials accurately in computational systems. This interest sparked my curiosity in applying 
             <strong>cheminformatics</strong> to study <em>inorganic compounds</em>, where traditional representations of molecules (e.g. SMILES) are not compatible. 
             I aim to answer key research questions such as: <em><strong>How can we represent molecules and materials more accurately to enable machine learning models with higher predictive power and interpretability?</strong></em></p>
             
-            <!--<p><strong>Some of the chemical systems I have explored using GNNs include:</strong></p>
-            <ul>
-                <li>🧪 <strong>Asymmetric Catalysis</strong></li>
-                <li>⚙️ <strong>Transition Metal Carbides and MXenes</strong></li>
-                <li>🧬 <strong>Polymers for Biomaterials Construction</strong></li>
-            </ul>
-    
-            <p>In addition to these, I am also involved in <em>side projects</em>, such as:</p>
-            <ul>
-                <li>🤖 Developing a <strong>self-driving laboratory for catalyst optimization</strong> in collaboration with <strong>Dr. Connor Taylors</strong>.</li>
-                <li>💻 Building <strong>Graphical User Interfaces (GUIs)</strong> and apps to allow <strong>non-expert scientists</strong> to utilize my software in their research.</li>
-            </ul>
-            <p> Currently, I am developing a Streamlit powered app for the prediction of chemical properties using GNNs.  This app will allow any chemist with no coding experience to train GNN
-                models on their own datasets. Also, the app will allow the users to predict the properties of in-silico libraries of molecules that they may want to study in the lab. 
-                Further, the app will provide interpretability tools to understand the predictions of the models. </p>-->
 
             <!-- Graphical Representation of Research Topics (Merged here) -->
-            <h4 class="text-center">Research Topics</h4>
-            <div class="row">
-                <div class="col-md-6 text-center">
+            <h4 class="text-center slide-in">Research Topics</h4>
+            <div class="row slide-in">
+                <div class="col-md-6 text-center slide-in">
                     <a href="pages/ligand_optimization.html">
                         <img src="img/dienes.png" alt="Research Topic 1" class="img-fluid" style="max-width: 80%; height: auto;">
                     </a>
                     <p>Data Driven Ligand Optimization</p>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center slide-in">
                     <a href="pages/interstitial_alloys.html">
                         <img src="img/materials.png" alt="Research Topic 2" class="img-fluid" style="max-width: 80%; height: auto;">
                     </a>
@@ -104,17 +95,17 @@
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container">
-            <h2 class="text-center">Ongoing Projects</h2>
+            <h2 class="text-center slide-in">Ongoing Projects</h2>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 slide-in">
                     <h4>Project 1: GNN Error Detection Tool</h4>
                     <p>Developed a tool for error detection in chemical databases using Graph Neural Networks. This tool allows chemists quickly identify chirality misassigments in databases.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 slide-in">
                     <h4>Project 2: GNN Explainability</h4>
                     <p>Focused on increasing the interpretability of GNN models by applying GNNExplainer and ShapleyValueSampling techniques.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 slide-in">
                     <h4>Project 3: Chemical Space Explorer</h4>
                     <p>Developed an application to visualize chemical space using graph-based representations, helping to discover new molecules efficiently.</p>
                 </div>
@@ -141,7 +132,7 @@
 
     <!-- Bootstrap and JS scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
 

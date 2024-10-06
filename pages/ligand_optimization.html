@@ -6,7 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Research Topic 1 | Eduardo Aguilar - PhD Research</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Darker Text Styles -->
+    <style>
+        /* Ensure all text is darker for better readability */
+        body {
+            color: #212529; /* Bootstrap dark gray */
+        }
+
+        /* Optionally, make headings even darker */
+        h1, h2, h3, h4, h5, h6 {
+            color: #000; /* Black for headings */
+        }
+    </style>
 </head>
 <body>
 
@@ -19,20 +32,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html#home">Research</a>
+
+                   <!-- Research Dropdown Menu (Opens on hover) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="../index.html" id="researchButton">
+                            Research
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="ligand_optimization.html">Data Driven Ligand Optimization</a></li>
+                            <li><a class="dropdown-item" href="interstitial_alloys.html">Explainable Deep Learning Models for Interstitial-Alloy</a></li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="about_me.html">About Me</a>
                     </li>
-                    <li class="nav-item"></li>
+                    <li class="nav-item">
                         <a class="nav-link" href="publications.html">Publications</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="collaborations.html">Collaborations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cv.html">CV</a>
@@ -52,7 +71,7 @@
                 </div>
                 <!-- Text Column -->
                 <div class="col-md-6">
-                    <h1 class="display-4">Chiral Ligand Optimization</h1>
+                    <h1 class="display-4">Data Driven Ligand Optimization</h1>
                     <p class="lead">Traditional approaches for ligand design include the synthesis of numerous potential ligands that share the same core structure, 
                         while changing the identity of substituents in fixed positions. This procedure is time-consuming and expensive.
                         We aim to leverage machine learning advances to make this process more efficient. 
@@ -63,31 +82,18 @@
     </section>
 
     <!-- Main Content Section -->
-    <section id="topic-details" class="py-5">
-        <div class="container">
-            <h2 class="text-center">Detailed Explanation of Research Topic 1</h2>
-            <p>Start by giving a general overview of the research topic. Explain its importance, the key challenges, and how it fits into your overall research focus.</p>
-            
-            <!-- Subsection: Background -->
-            <h3>Background</h3>
-            <p>Provide background information here, explaining the scientific context and the problem this research addresses. You might also want to include relevant citations or links to further reading.</p>
-
-            <!-- Subsection: Methods -->
-            <h3>Methods</h3>
-            <p>Describe the methods you’re using in this research topic. You can talk about any software, algorithms, or experimental techniques you are utilizing to carry out your research. For example, how you use Graph Neural Networks (GNNs) to solve specific problems.</p>
-
-            <!-- Subsection: Results and Findings -->
-            <h3>Results</h3>
-            <p>Discuss any preliminary or final results that you’ve achieved. You could include visualizations, charts, or tables to showcase your data.</p>
-            <img src="img/research-results.png" alt="Research Results" class="img-fluid my-4"> <!-- Optional image -->
-
-            <!-- Subsection: Conclusion and Future Work -->
-            <h3>Conclusion & Future Work</h3>
-            <p>Summarize the current state of the research and mention what future work will focus on. How will this topic evolve in the coming months or years? What are the next steps?</p>
-
-            <!-- Optional: Downloadable PDF -->
-            <p>If you want to include downloadable content, you can add a button like this:</p>
-            <a href="files/research-topic1.pdf" class="btn btn-primary">Download Full Report</a>
+    <section id="research-overview" class="py-5 slide-in">
+        <div class="container slide-in">
+            <h2 class="text-center slide-in"><strong>Research Overview</strong></h2>
+            <p>
+                My research leverages <strong>machine learning (ML)</strong>, specifically <strong>Graph Neural Networks (GNNs)</strong>, to revolutionize the way we optimize chiral ligands in asymmetric catalysis. Traditional ligand design is time-consuming, involving the manual synthesis and testing of numerous ligand variants. By integrating <strong>data-driven approaches</strong>, my work accelerates this process, reducing both the cost and effort required to achieve high enantioselectivity.
+            </p>
+            <p>
+                In particular, I focus on the <strong>development of interpretable AI models</strong>, like <strong>HCat-GNet</strong>, which predict the outcomes of catalytic reactions based on molecular structures. This approach not only enables rapid ligand optimization but also provides valuable insights into how different molecular features influence reaction selectivity, facilitating human chemists in designing better catalysts.
+            </p>
+            <p>
+                My research has broad implications for the catalysis community, offering a <strong>faster and more accurate</strong> pathway to catalyst discovery and optimization. By automating the design process, I aim to make these cutting-edge tools accessible to chemists, driving innovation in <strong>sustainable chemistry</strong> and <strong>pharmaceutical synthesis</strong>.
+            </p>
         </div>
     </section>
 
@@ -100,5 +106,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>
 </html>

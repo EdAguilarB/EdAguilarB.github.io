@@ -148,6 +148,83 @@ nav.sticky {
 }
 
 
+/* Define a fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Create a class to apply the fade-out effect */
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+body, main, .container {
+  opacity: 1; /* Make sure to set initial opacity */
+}
+
+
+
+/* Open dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* Ensure proper positioning */
+}
+
+/* Ensure the dropdown also opens when focused (keyboard accessibility) */
+.nav-item.dropdown:focus .dropdown-menu {
+  display: block;
+}
+
+
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keyframes for slide-out animation */
+@keyframes slideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(30px); }
+}
+
+/* Slide-in effect */
+.slide-in {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+/* Slide-out effect */
+.slide-out {
+  animation: slideOut 1s ease-in-out forwards;
+}
+
+/* Delay the animation for staggered effect */
+.slide-in-delayed {
+  animation-delay: 0.3s;
+}
+
+/* Keyframes for fade-in animation */
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Fade-in effect */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
 
 
 
