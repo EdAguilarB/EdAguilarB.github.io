@@ -1,14 +1,21 @@
 @charset "UTF-8";
 
+/* ==================== */
 /* Color Variables */
+/* ==================== */
 :root {
   --primary-color: #0a9396; /* Teal accent */
   --secondary-color: #ee9b00; /* Warm orange */
   --bg-dark-gradient: linear-gradient(135deg, #1a1a1d, #343a40); /* Gradient for dark background */
   --body-font-color: #eaeaea; /* Light text color for readability */
+  --light-bg-color: #f0f0f0; /* Light gray background */
+  --dark-text-color: #212529; /* Dark text color for contrast */
+  --white: #ffffff;
 }
 
-/* Typography Enhancements */
+/* ==================== */
+/* Typography */
+/* ==================== */
 h1, h2, h3 {
   font-family: 'Lora', serif;
   font-weight: 700;
@@ -19,13 +26,19 @@ p, li, a {
   font-weight: 300;
 }
 
-/* Base body styling */
+/* ==================== */
+/* Base Body Styling */
+/* ==================== */
 body {
-  background-color: var(--bg-dark-gradient);
+  background: var(--bg-dark-gradient);
   color: var(--body-font-color);
+  margin: 0;
+  padding: 0;
 }
 
+/* ==================== */
 /* Links Styling */
+/* ==================== */
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -36,10 +49,13 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ==================== */
 /* Button Styling */
+/* ==================== */
 .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
@@ -47,16 +63,18 @@ a:hover {
   border-color: var(--secondary-color);
 }
 
+/* ==================== */
 /* Section Styling */
+/* ==================== */
 #research, #projects, #cv {
-  background-color: #f0f0f0; /* Light gray background */
-  color: #212529; /* Dark text color for contrast */
-  padding: 60px 0; /* Padding to space sections */
+  background-color: var(--light-bg-color);
+  color: var(--dark-text-color);
+  padding: 60px 0;
 }
 
 #publications, #contact {
-  background-color: #ffffff;
-  color:#212529;
+  background-color: var(--white);
+  color: var(--dark-text-color);
   padding: 60px 0;
 }
 
@@ -68,15 +86,18 @@ a:hover {
   transform: translateY(-10px);
 }
 
+/* ==================== */
 /* Footer Styling */
+/* ==================== */
 footer {
-  background-color: var(--primary-color); /* Teal background */
-  color: #ffffff;
+  background-color: var(--primary-color);
+  color: var(--white);
   padding: 20px;
+  text-align: center;
 }
 
 footer a {
-  color: #ffffff;
+  color: var(--white);
   margin: 0 10px;
   font-size: 1.2rem;
 }
@@ -85,29 +106,88 @@ footer a:hover {
   color: var(--secondary-color);
 }
 
+/* ==================== */
 /* Animations */
+/* ==================== */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-section {
-  animation: fadeIn 0.5s ease-in-out;
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
 }
 
-/* Sticky Navigation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(30px); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+.slide-in {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.slide-out {
+  animation: slideOut 1s ease-in-out forwards;
+}
+
+.slide-in-delayed {
+  animation-delay: 0.3s;
+}
+
+/* ==================== */
+/* Hero Section */
+/* ==================== */
+#hero img, #hero h1, #hero p {
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+#hero h1 {
+  animation-delay: 0.5s;
+}
+
+#hero p {
+  animation-delay: 1s;
+}
+
+/* ==================== */
+/* Navigation */
+/* ==================== */
 nav.sticky {
-  background-color: var(--primary-color); /* Change to teal when sticky */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add shadow to sticky nav */
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease-in-out;
 }
 
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown:focus .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* ==================== */
 /* Responsive Styling */
+/* ==================== */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
-  
+
   p, li {
     font-size: 1rem;
   }
@@ -118,113 +198,4 @@ nav.sticky {
     font-size: 3rem;
   }
 }
-
-/* Keyframes for fade-in animation */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px); /* Optional: Slight move */
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-/* Apply fade-in animation to the hero section elements */
-#hero img, #hero h1, #hero p {
-  animation: fadeIn 2s ease-in-out; /* Animation duration and easing */
-  opacity: 0; /* Start with opacity 0 */
-  animation-fill-mode: forwards; /* Keep the final state after animation */
-}
-
-/* Delay the animations to occur one after the other */
-#hero h1 {
-  animation-delay: 0.5s;
-}
-
-#hero p {
-  animation-delay: 1s;
-}
-
-
-/* Define a fade-out animation */
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-/* Create a class to apply the fade-out effect */
-.fade-out {
-  animation: fadeOut 0.5s ease-in-out;
-  animation-fill-mode: forwards;
-  opacity: 1;
-}
-
-body, main, .container {
-  opacity: 1; /* Make sure to set initial opacity */
-}
-
-
-
-/* Open dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0; /* Ensure proper positioning */
-}
-
-/* Ensure the dropdown also opens when focused (keyboard accessibility) */
-.nav-item.dropdown:focus .dropdown-menu {
-  display: block;
-}
-
-
-
-/* Keyframes for slide-in animation */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Keyframes for slide-out animation */
-@keyframes slideOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(30px); }
-}
-
-/* Slide-in effect */
-.slide-in {
-  animation: slideIn 1s ease-in-out forwards;
-}
-
-/* Slide-out effect */
-.slide-out {
-  animation: slideOut 1s ease-in-out forwards;
-}
-
-/* Delay the animation for staggered effect */
-.slide-in-delayed {
-  animation-delay: 0.3s;
-}
-
-/* Keyframes for fade-in animation */
-/* Keyframes for fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Fade-in effect */
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-
-
 
