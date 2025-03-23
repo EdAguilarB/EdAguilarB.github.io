@@ -27,6 +27,23 @@ document.querySelectorAll('a[href*="pages/"]').forEach(anchor => {
     });
 });
 
+// Fade-in animation (only once)
+const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fadeIn-done'); // Mark as done
+            fadeInObserver.unobserve(entry.target); // Stop observing
+        }
+    });
+}, {
+    threshold: 0.15 // Trigger when 15% of the element is visible
+});
+
+// Observe all elements with the fade-in class
+document.querySelectorAll('.fade-in').forEach(element => {
+    fadeInObserver.observe(element);
+});
+
 // Scroll-triggered animations using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
