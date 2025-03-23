@@ -1,15 +1,6 @@
-/*!
-* Start Bootstrap - Business Frontpage v5.0.9 (https://startbootstrap.com/template/business-frontpage)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-frontpage/blob/master/LICENSE)
-*/
-// This file is intentionally blank
-// Use this file to add JavaScript to your project
-
 // Smooth scrolling for internal links
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        // Only apply smooth scrolling for internal links (starting with #)
         if (this.getAttribute('href').startsWith('#')) {
             e.preventDefault();
             const targetSection = document.querySelector(this.getAttribute('href'));
@@ -36,22 +27,37 @@ document.querySelectorAll('a[href*="pages/"]').forEach(anchor => {
     });
 });
 
-// Scroll-triggered animations using Intersection Observer with dual thresholds
+// Fade-in animation (only once)
+const fadeInObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fadeIn-done'); // Mark as done
+            fadeInObserver.unobserve(entry.target); // Stop observing
+        }
+    });
+}, {
+    threshold: 0.15 // Trigger when 15% of the element is visible
+});
+
+// Observe all elements with the fade-in class
+document.querySelectorAll('.fade-in').forEach(element => {
+    fadeInObserver.observe(element);
+});
+
+// Scroll-triggered animations using Intersection Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.intersectionRatio >= 0.15) {
-            // If the element is at least 15% visible, slide in
             entry.target.classList.add('slide-in');
             entry.target.classList.remove('slide-out');
         } else if (entry.intersectionRatio <= 0.1) {
-            // If the element is 10% or less visible, slide out
             entry.target.classList.remove('slide-in');
             entry.target.classList.add('slide-out');
         }
     });
 }, {
-    threshold: [0.15, 0.20] // Trigger at 10% and 15% visibility
+    threshold: [0.15, 0.20]
 });
 
-// Select and observe all elements with the slide-in/slide-out animation
+// Observe elements with slide-in/slide-out animations
 document.querySelectorAll('.slide-in, .slide-out').forEach(element => observer.observe(element));

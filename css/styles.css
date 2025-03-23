@@ -1,230 +1,264 @@
 @charset "UTF-8";
 
-/* Color Variables */
+/* ==================== */
+/* Light Theme Color Variables */
+/* ==================== */
 :root {
-  --primary-color: #0a9396; /* Teal accent */
-  --secondary-color: #ee9b00; /* Warm orange */
-  --bg-dark-gradient: linear-gradient(135deg, #1a1a1d, #343a40); /* Gradient for dark background */
-  --body-font-color: #eaeaea; /* Light text color for readability */
+  --primary-color: #0a9396;       /* Teal accent */
+  --secondary-color: #ee9b00;     /* Warm orange */
+  --tertiary-color: #005f73;      /* Deep blue for contrast */
+  --bg-color: #f8f9fa;            /* Soft off-white */
+  --section-bg: #f8f9fa;          /* Light pastel blue for contrast */
+  --card-bg: #ffffff;             /* Pure white for cards */
+  --text-color: #2d3436;          /* Dark gray for text */
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  --border-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Typography Enhancements */
+/* ==================== */
+/* Base Styling */
+/* ==================== */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ==================== */
+/* Typography */
+/* ==================== */
 h1, h2, h3 {
   font-family: 'Lora', serif;
   font-weight: 700;
+  color: var(--tertiary-color);
 }
 
 p, li, a {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-/* Base body styling */
-body {
-  background-color: var(--bg-dark-gradient);
-  color: var(--body-font-color);
+/* ==================== */
+/* Navigation */
+/* ==================== */
+.navbar {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--border-color);
 }
 
-/* Links Styling */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
+.nav-link {
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-a:hover {
+.nav-link:hover {
   color: var(--secondary-color);
-  text-decoration: underline;
 }
 
-/* Button Styling */
-.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+/* ==================== */
+/* Sections with More Contrast */
+/* ==================== */
+#home {
+  background: linear-gradient(to bottom right, #f8f9fa, #d6e6f2);
+  padding: 100px 0;
 }
 
-.btn-primary:hover {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
-}
-
-/* Section Styling */
 #research, #projects, #cv {
-  background-color: #f0f0f0; /* Light gray background */
-  color: #212529; /* Dark text color for contrast */
-  padding: 60px 0; /* Padding to space sections */
+  background-color: var(--section-bg);
+  padding: 70px 0;
+  box-shadow: var(--shadow);
+  margin: 40px 0;
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
 }
 
 #publications, #contact {
-  background-color: #ffffff;
-  color:#212529;
-  padding: 60px 0;
+  background: linear-gradient(to bottom, #e3f2fd, #f4f4f4);
+  padding: 70px 0;
 }
 
+/* ==================== */
+/* Project Cards with Enhanced Shadows */
+/* ==================== */
 .project-card {
-  transition: transform 0.3s ease-in-out;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary-color);
 }
 
-/* Footer Styling */
-footer {
-  background-color: var(--primary-color); /* Teal background */
-  color: #ffffff;
-  padding: 20px;
+/* ==================== */
+/* Buttons with More Contrast */
+/* ==================== */
+.btn {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-footer a {
-  color: #ffffff;
-  margin: 0 10px;
-  font-size: 1.2rem;
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 4px 8px rgba(10, 147, 150, 0.3);
 }
 
-footer a:hover {
-  color: var(--secondary-color);
+.btn-primary:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(238, 155, 0, 0.35);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* ==================== */
+/* Skill Badges */
+/* ==================== */
+.skill-badge {
+  background: rgba(10, 147, 150, 0.1);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(10, 147, 150, 0.3);
+  display: inline-block;
+  margin: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-section {
-  animation: fadeIn 0.5s ease-in-out;
+.skill-badge:hover {
+  background: rgba(10, 147, 150, 0.2);
+  transform: scale(1.05);
 }
 
-/* Sticky Navigation */
-nav.sticky {
-  background-color: var(--primary-color); /* Change to teal when sticky */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Add shadow to sticky nav */
-  transition: background-color 0.3s ease-in-out;
+/* ==================== */
+/* Animations (Subtle) */
+/* ==================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-  
-  p, li {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-/* Keyframes for fade-in animation */
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px); /* Optional: Slight move */
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-/* Apply fade-in animation to the hero section elements */
-#hero img, #hero h1, #hero p {
-  animation: fadeIn 2s ease-in-out; /* Animation duration and easing */
-  opacity: 0; /* Start with opacity 0 */
-  animation-fill-mode: forwards; /* Keep the final state after animation */
-}
-
-/* Delay the animations to occur one after the other */
-#hero h1 {
-  animation-delay: 0.5s;
-}
-
-#hero p {
-  animation-delay: 1s;
-}
-
-
-/* Define a fade-out animation */
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-/* Create a class to apply the fade-out effect */
-.fade-out {
-  animation: fadeOut 0.5s ease-in-out;
-  animation-fill-mode: forwards;
+.fadeIn-done {
   opacity: 1;
-}
-
-body, main, .container {
-  opacity: 1; /* Make sure to set initial opacity */
+  transform: translateY(0);
 }
 
 
+.img-fluid {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
-/* Open dropdown on hover */
+.img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.dropdown-menu {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  z-index: 1000;
+}
+
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
-  margin-top: 0; /* Ensure proper positioning */
 }
 
-/* Ensure the dropdown also opens when focused (keyboard accessibility) */
-.nav-item.dropdown:focus .dropdown-menu {
+.dropdown-item {
+  padding: 10px 15px;
+  color: var(--text-color);
+  text-decoration: none;
   display: block;
+  transition: background 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background: var(--secondary-color);
+  color: white;
+}
+
+/* ==================== */
+/* Publication Item Styling */
+/* ==================== */
+.publication-item {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.publication-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.publication-item .authors {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-color);
 }
 
 
 
-/* Keyframes for slide-in animation */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ==================== */
+/* Collaborator Styling */
+/* ==================== */
+.collaborator {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  max-width: 500px;
 }
 
-/* Keyframes for slide-out animation */
-@keyframes slideOut {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(30px); }
+.collaborator:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Slide-in effect */
-.slide-in {
-  animation: slideIn 1s ease-in-out forwards;
+.collaborator img {
+  border-radius: 50%;
+  max-width: 150px;
+  margin-bottom: 15px;
 }
 
-/* Slide-out effect */
-.slide-out {
-  animation: slideOut 1s ease-in-out forwards;
+.collaborator h4 a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 
-/* Delay the animation for staggered effect */
-.slide-in-delayed {
-  animation-delay: 0.3s;
+.collaborator h4 a:hover {
+  color: var(--secondary-color);
 }
-
-/* Keyframes for fade-in animation */
-/* Keyframes for fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Fade-in effect */
-.fade-in {
-  animation: fadeIn 1s ease-in-out forwards;
-}
-
-
-
-

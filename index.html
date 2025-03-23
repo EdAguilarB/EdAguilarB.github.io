@@ -4,36 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Eduardo Aguilar - PhD Student in Graph Neural Networks</title>
-    <!-- You can add Bootstrap CDN for quick styling -->
+    <title>Eduardo Aguilar-Bejarano - PhD Student in Graph Neural Networks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Eduardo Aguilar</a>
+            <a class="navbar-brand" href="#home">Eduardo Aguilar-Bejarano</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-    
-                    <!-- Research Dropdown Menu (Opens on hover) -->
+                    <!-- Research Dropdown Menu -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link active" href="#home" id="researchButton">
-                            Research
-                        </a>
+                        <a class="nav-link active" href="#home" id="researchButton">Research</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="pages/ligand_optimization.html">Data Driven Ligand Optimization</a></li>
                             <li><a class="dropdown-item" href="pages/interstitial_alloys.html">Explainable Deep Learning Models for Interstitial-Alloy</a></li>
                         </ul>
                     </li>
-    
                     <li class="nav-item">
                         <a class="nav-link" href="pages/about_me.html">About Me</a>
                     </li>
@@ -52,11 +45,27 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="py-5 text-center text-light bg-dark">
+    <section id="home" class="py-5 text-center">
         <div class="container">
-            <h1 class="display-4">Eduardo Aguilar</h1>
-            <p class="lead">Chemistry PhD Student at The University of Nottingham</p>
-            <p>Welcome to my personal website where I share my research, projects, and publications related to Graph Neural Networks (GNNs) and their applications.</p>
+            <h1 class="display-4 fade-in">Eduardo Aguilar-Bejarano</h1>
+            <p class="lead fade-in">Data Scientist Engineer and Chemistry PhD Student at The University of Nottingham</p>
+            <p class="fade-in">Welcome to my personal website where I share my research, projects, and publications related to Graph Neural Networks (GNNs) and their applications.</p>
+            <a href="#research" class="btn btn-primary mt-3 fade-in">Explore Research</a>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-5">
+        <div class="container">
+            <h2 class="text-center slide-in"><strong>Research Interests</strong></h2>
+            <div class="text-center slide-in">
+                <img src="img/research.png" alt="Research Interests" style="max-width: 70%; height: auto;">
+            </div>
+            <p class="slide-in"><em>My research revolves around <strong>Graph Neural Networks (GNNs)</strong> and their use for various cutting-edge applications in Chemical and Materials Sciences.</em>
+            I am driven by the challenge of representing molecules and materials accurately in computational systems. This interest sparked my curiosity in applying
+            <strong>cheminformatics</strong> to study <em>inorganic compounds</em>, where traditional representations of molecules (e.g. SMILES) are not compatible.
+            I aim to answer key research questions such as: <em><strong>How can we represent molecules and materials more accurately to enable machine learning models with higher predictive power and interpretability?</strong></em></p>
+            </div>
         </div>
     </section>
 
@@ -64,69 +73,84 @@
     <!-- Research Section -->
     <section id="research" class="py-5">
         <div class="container">
-            <h2 class="text-center slide-in"> <strong>Research Interests</strong> </h2>
-            <p class="slide-in"><em>My  research revolves around <strong>Graph Neural Networks (GNNs)</strong> and their use for various cutting-edge applications in Chemical and Materials Sciences.</em>
-            I am driven by the challenge of representing molecules and materials accurately in computational systems. This interest sparked my curiosity in applying 
-            <strong>cheminformatics</strong> to study <em>inorganic compounds</em>, where traditional representations of molecules (e.g. SMILES) are not compatible. 
-            I aim to answer key research questions such as: <em><strong>How can we represent molecules and materials more accurately to enable machine learning models with higher predictive power and interpretability?</strong></em></p>
-            
-
-            <!-- Graphical Representation of Research Topics (Merged here) -->
-            <h4 class="text-center slide-in">Research Topics</h4>
+            <!-- Graphical Representation of Research Topics -->
+            <h2 class="text-center slide-in">Research Topics</h2>
             <div class="row slide-in">
-                <div class="col-md-6 text-center slide-in">
+                <div class="col-md-6 text-center research-topic">
                     <a href="pages/ligand_optimization.html">
-                        <img src="img/research/dienes.png" alt="Research Topic 1" class="img-fluid" style="max-width: 80%; height: auto;">
+                        <img src="img/research/dienes.png" alt="Research Topic 1" class="img-fluid">
                     </a>
-                    <p>Data Driven Ligand Optimization</p>
+                    <p><strong> Driven Ligand Optimization </strong> </p>
+                    <div class="skill-badge">Cheminformatics</div>
+                    <div class="skill-badge">Python</div>
                 </div>
-                <div class="col-md-6 text-center slide-in">
+                <div class="col-md-6 text-center research-topic">
                     <a href="pages/interstitial_alloys.html">
-                        <img src="img/research/materials.png" alt="Research Topic 2" class="img-fluid" style="max-width: 80%; height: auto;">
+                        <img src="img/research/materials.png" alt="Research Topic 2" class="img-fluid">
                     </a>
-                    <p>Explainable Deep Learning Models for Interstitial-Alloy</p>
+                    <p><strong> Explainable Deep Learning Models for Interstitial-Alloy </strong></p>
+                    <div class="skill-badge">Materials Science</div>
+                    <div class="skill-badge">Deep Learning</div>
                 </div>
             </div>
-
         </div>
     </section>
 
-
     <!-- Projects Section -->
-    <section id="projects" class="py-5">
+    <section id="projects" class="py-4">
         <div class="container">
             <h2 class="text-center slide-in">Ongoing Projects</h2>
             <div class="row">
                 <div class="col-md-4 slide-in">
-                    <h4>Project 1: GNN Error Detection Tool</h4>
-                    <p>Developed a tool for error detection in chemical databases using Graph Neural Networks. This tool allows chemists quickly identify chirality misassigments in databases.</p>
+                    <div class="project-card">
+                        <h4>GNNs-Driven Biopolymers Design</h4>
+                        <div class="skill-badge">PyTorch</div>
+                        <div class="skill-badge">GNNs</div>
+                        <p>Currently working with the <a href="https://www.nottingham.ac.uk/research/groups/biomaterials-discovery/" target="_blank">EPSRC Large Grant</a>, specializing in GNNs and explainability methods for novel materials discovery.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 slide-in">
-                    <h4>Project 2: GNN Explainability</h4>
-                    <p>Focused on increasing the interpretability of GNN models by applying GNNExplainer and ShapleyValueSampling techniques.</p>
+                    <div class="project-card">
+                        <h4>GNN-Guided Small Molecule Design</h4>
+                        <div class="skill-badge">Generative AI</div>
+                        <div class="skill-badge">Chemistry</div>
+                        <p>Exploring GNNs and XAI methods for generating novel small molecules with targeted properties.</p>
+                    </div>
                 </div>
                 <div class="col-md-4 slide-in">
-                    <h4>Project 3: Chemical Space Explorer</h4>
-                    <p>Developed an application to visualize chemical space using graph-based representations, helping to discover new molecules efficiently.</p>
+                    <div class="project-card">
+                        <h4>ML Predictions Error Quantification</h4>
+                        <div class="skill-badge">Uncertainty</div>
+                        <div class="skill-badge">Validation</div>
+                        <p>Developing metrics to quantify prediction accuracy based on molecular structure relationships in training data.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-5">
         <div class="container text-center">
-            <h2>Contact</h2>
-            <p>If you'd like to collaborate or discuss my research, feel free to contact me:</p>
-            <p>Email: <a href="mailto:eduardo.aguilar-bejarano@nottingham.ac.uk">eduardo.aguilar-bejarano@nottingham.ac.uk</a></p>
+            <h2 class="slide-in">Contact</h2>
+            <div class="contact-card slide-in">
+                <p>If you'd like to collaborate or discuss my research:</p>
+                <a href="mailto:eduardo.aguilar-bejarano@nottingham.ac.uk" class="btn btn-primary mt-3 fade-in">
+                    eduardo.aguilar-bejarano@nottingham.ac.uk
+                </a>
+            </div>
         </div>
     </section>
 
-
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer class="py-4">
         <div class="container text-center">
-            <p>&copy; 2024 Eduardo Aguilar Bejarano - PhD Student | Built with Bootstrap</p>
+            <p>&copy; 2025 Eduardo Aguilar-Bejarano - PhD Student & Data Scientist Engineer</p>
+            <div class="social-links">
+                <a href="https://github.com/EdAguilarB" class="text-muted">GitHub</a>
+                <a href="https://www.linkedin.com/in/edaguilar00/" class="text-muted">LinkedIn</a>
+                <a href="https://scholar.google.co.uk/citations?user=aAuiySoAAAAJ&hl=en&authuser=1" class="text-muted">Google Scholar</a>
+            </div>
         </div>
     </footer>
 
