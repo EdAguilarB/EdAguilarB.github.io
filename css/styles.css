@@ -4,13 +4,13 @@
 /* Light Theme Color Variables */
 /* ==================== */
 :root {
-  --primary-color: #0a9396;       /* Teal accent */
-  --secondary-color: #ee9b00;     /* Warm orange */
-  --tertiary-color: #005f73;      /* Deep blue for contrast */
-  --bg-color: #f8f9fa;            /* Soft off-white */
-  --section-bg: #f8f9fa;          /* Light pastel blue for contrast */
-  --card-bg: #ffffff;             /* Pure white for cards */
-  --text-color: #2d3436;          /* Dark gray for text */
+  --primary-color: #0a9396; /* Teal accent */
+  --secondary-color: #ee9b00; /* Warm orange */
+  --tertiary-color: #005f73; /* Deep blue for contrast */
+  --bg-color: #f8f9fa; /* Soft off-white */
+  --section-bg: #f8f9fa; /* Light pastel blue for contrast */
+  --card-bg: #ffffff; /* Pure white for cards */
+  --text-color: #2d3436; /* Dark gray for text */
   --shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
   --border-color: rgba(0, 0, 0, 0.15);
 }
@@ -22,19 +22,23 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /* ==================== */
 /* Typography */
 /* ==================== */
-h1, h2, h3 {
-  font-family: 'Lora', serif;
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
   font-weight: 700;
   color: var(--tertiary-color);
 }
 
-p, li, a {
+p,
+li,
+a {
   font-weight: 400;
 }
 
@@ -65,7 +69,9 @@ p, li, a {
   padding: 100px 0;
 }
 
-#research, #projects, #cv {
+#research,
+#projects,
+#cv {
   background-color: var(--section-bg);
   padding: 70px 0;
   box-shadow: var(--shadow);
@@ -74,7 +80,8 @@ p, li, a {
   border: 2px solid var(--border-color);
 }
 
-#publications, #contact {
+#publications,
+#contact {
   background: linear-gradient(to bottom, #e3f2fd, #f4f4f4);
   padding: 70px 0;
 }
@@ -160,7 +167,6 @@ p, li, a {
   transform: translateY(0);
 }
 
-
 .img-fluid {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -169,7 +175,6 @@ p, li, a {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 
 .dropdown-menu {
   background: var(--card-bg);
@@ -224,8 +229,6 @@ p, li, a {
   font-size: 0.95rem;
   color: var(--text-color);
 }
-
-
 
 /* ==================== */
 /* Collaborator Styling */
