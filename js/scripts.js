@@ -117,6 +117,41 @@ const slideObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.slide-in, .slide-out').forEach(el => slideObserver.observe(el));
 
 // =============================================
+// "Last updated" footer stamp
+// Pulls the latest commit date from the GitHub API so it
+// refreshes automatically on every push. Falls back to the
+// page's own last-modified date if the API is unreachable.
+// =============================================
+function initLastUpdated() {
+  const footer = document.querySelector('footer .container');
+  if (!footer) return;
+
+  const stamp = document.createElement('p');
+  stamp.className = 'last-updated';
+  footer.appendChild(stamp);
+
+  const fmt = (d) => d.toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const render = (date) => {
+    stamp.innerHTML = '<i class="fa-solid fa-code-commit"></i> Last updated: ' + fmt(date);
+  };
+
+  fetch('https://api.github.com/repos/EdAguilarB/EdAguilarB.github.io/commits?per_page=1')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      const iso = data && data[0] && data[0].commit &&
+                  data[0].commit.committer && data[0].commit.committer.date;
+      render(iso ? new Date(iso) : new Date(document.lastModified));
+    })
+    .catch(() => render(new Date(document.lastModified)));
+}
+
+// =============================================
 // Init on DOM ready
 // =============================================
-document.addEventListener('DOMContentLoaded', initTypewriter);
+document.addEventListener('DOMContentLoaded', function () {
+  initTypewriter();
+  initLastUpdated();
+});
