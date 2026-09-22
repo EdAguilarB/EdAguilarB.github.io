@@ -149,9 +149,63 @@ function initLastUpdated() {
 }
 
 // =============================================
+// Placeholder avatar for collaborators without a photo
+// Keeps every card visually consistent (circular avatar on top).
+// =============================================
+function initCollabAvatars() {
+  document.querySelectorAll('.collaborator').forEach(card => {
+    if (!card.querySelector('img')) {
+      const avatar = document.createElement('div');
+      avatar.className = 'collab-avatar';
+      avatar.innerHTML = '<i class="fa-solid fa-user"></i>';
+      card.prepend(avatar);
+    }
+  });
+}
+
+// =============================================
+// Image lightbox — click a photo to view it full-size
+// Applies to collaborator photos and any img.zoomable.
+// =============================================
+function initLightbox() {
+  const zoomables = document.querySelectorAll('.collaborator img, img.zoomable');
+  if (!zoomables.length) return;
+
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img alt="">';
+  document.body.appendChild(box);
+
+  const boxImg = box.querySelector('img');
+  const closeBtn = box.querySelector('.lightbox-close');
+
+  const open = (src, alt) => {
+    boxImg.src = src;
+    boxImg.alt = alt || '';
+    box.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    box.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  zoomables.forEach(img => {
+    img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+  });
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', e => { if (e.target === box) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && box.classList.contains('open')) close();
+  });
+}
+
+// =============================================
 // Init on DOM ready
 // =============================================
 document.addEventListener('DOMContentLoaded', function () {
   initTypewriter();
   initLastUpdated();
+  initCollabAvatars();
+  initLightbox();
 });
