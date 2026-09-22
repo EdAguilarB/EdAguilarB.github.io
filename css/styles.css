@@ -809,6 +809,13 @@ section { padding: 80px 0; }
   color: var(--text-muted);
   margin-bottom: 1rem;
 }
+.publication-item .authors strong {
+  color: var(--accent);
+}
+.publication-item .authors sup {
+  color: var(--accent);
+  font-weight: 600;
+}
 .journal-badge {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.73rem;
