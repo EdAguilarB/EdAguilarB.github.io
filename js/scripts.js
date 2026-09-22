@@ -75,6 +75,7 @@ window.addEventListener('scroll', function () {
 document.querySelectorAll('a[href*="pages/"], a[href*="../"]').forEach(anchor => {
   if (anchor.hostname === window.location.hostname) {
     anchor.addEventListener('click', function (e) {
+      if (this.classList.contains('zoomable')) return; // handled by the lightbox
       const href = this.getAttribute('href');
       if (href && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('http')) {
         e.preventDefault();
@@ -165,11 +166,13 @@ function initCollabAvatars() {
 
 // =============================================
 // Image lightbox — click a photo to view it full-size
-// Applies to collaborator photos and any img.zoomable.
+// Applies to collaborator photos, any img.zoomable, and any
+// a.zoomable link whose href points to an image (e.g. certificates).
 // =============================================
 function initLightbox() {
-  const zoomables = document.querySelectorAll('.collaborator img, img.zoomable');
-  if (!zoomables.length) return;
+  const images = document.querySelectorAll('.collaborator img, img.zoomable');
+  const links = document.querySelectorAll('a.zoomable');
+  if (!images.length && !links.length) return;
 
   const box = document.createElement('div');
   box.className = 'lightbox';
@@ -190,8 +193,14 @@ function initLightbox() {
     document.body.style.overflow = '';
   };
 
-  zoomables.forEach(img => {
+  images.forEach(img => {
     img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+  });
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(link.getAttribute('href'), link.textContent.trim());
+    });
   });
   closeBtn.addEventListener('click', close);
   box.addEventListener('click', e => { if (e.target === box) close(); });

@@ -865,7 +865,7 @@ section { padding: 80px 0; }
 .collaborator img { cursor: zoom-in; }
 
 /* Image lightbox (full-size view) */
-img.zoomable { cursor: zoom-in; }
+img.zoomable, a.zoomable { cursor: zoom-in; }
 .lightbox {
   position: fixed;
   inset: 0;
