@@ -117,6 +117,95 @@ const slideObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.slide-in, .slide-out').forEach(el => slideObserver.observe(el));
 
 // =============================================
+// "Last updated" footer stamp
+// Pulls the latest commit date from the GitHub API so it
+// refreshes automatically on every push. Falls back to the
+// page's own last-modified date if the API is unreachable.
+// =============================================
+function initLastUpdated() {
+  const footer = document.querySelector('footer .container');
+  if (!footer) return;
+
+  const stamp = document.createElement('p');
+  stamp.className = 'last-updated';
+  footer.appendChild(stamp);
+
+  const fmt = (d) => d.toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const render = (date) => {
+    stamp.innerHTML = '<i class="fa-solid fa-code-commit"></i> Last updated: ' + fmt(date);
+  };
+
+  fetch('https://api.github.com/repos/EdAguilarB/EdAguilarB.github.io/commits?per_page=1')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      const iso = data && data[0] && data[0].commit &&
+                  data[0].commit.committer && data[0].commit.committer.date;
+      render(iso ? new Date(iso) : new Date(document.lastModified));
+    })
+    .catch(() => render(new Date(document.lastModified)));
+}
+
+// =============================================
+// Placeholder avatar for collaborators without a photo
+// Keeps every card visually consistent (circular avatar on top).
+// =============================================
+function initCollabAvatars() {
+  document.querySelectorAll('.collaborator').forEach(card => {
+    if (!card.querySelector('img')) {
+      const avatar = document.createElement('div');
+      avatar.className = 'collab-avatar';
+      avatar.innerHTML = '<i class="fa-solid fa-user"></i>';
+      card.prepend(avatar);
+    }
+  });
+}
+
+// =============================================
+// Image lightbox — click a photo to view it full-size
+// Applies to collaborator photos and any img.zoomable.
+// =============================================
+function initLightbox() {
+  const zoomables = document.querySelectorAll('.collaborator img, img.zoomable');
+  if (!zoomables.length) return;
+
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img alt="">';
+  document.body.appendChild(box);
+
+  const boxImg = box.querySelector('img');
+  const closeBtn = box.querySelector('.lightbox-close');
+
+  const open = (src, alt) => {
+    boxImg.src = src;
+    boxImg.alt = alt || '';
+    box.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    box.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  zoomables.forEach(img => {
+    img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+  });
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', e => { if (e.target === box) close(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && box.classList.contains('open')) close();
+  });
+}
+
+// =============================================
 // Init on DOM ready
 // =============================================
-document.addEventListener('DOMContentLoaded', initTypewriter);
+document.addEventListener('DOMContentLoaded', function () {
+  initTypewriter();
+  initLastUpdated();
+  initCollabAvatars();
+  initLightbox();
+});
